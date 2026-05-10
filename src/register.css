@@ -1,20 +1,25 @@
 /* register.css */
-/* Electrical Billing System Theme - Clean, Professional, Minimalist */
+/* Electrical Billing System Theme - Register Page - Fresh & Modern */
 
 :root {
-    --primary: #0C6D9E;      /* Trustworthy blue, electrical theme */
-    --primary-dark: #084d6f;
-    --primary-light: #eef5f9;
-    --secondary: #2c3e50;
-    --success: #27ae60;
-    --error: #e74c3c;
-    --gray-light: #f5f6f8;
-    --gray-border: #e0e4e8;
-    --gray-text: #5a6c7e;
-    --white: #ffffff;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --transition: all 0.2s ease;
+    --primary: #1B4F72;           /* Deep navy blue */
+    --primary-dark: #0D3B5E;      /* Darker navy */
+    --primary-light: #E8F0F8;     /* Soft blue tint */
+    --secondary: #1E293B;         /* Slate gray */
+    --accent: #F59E0B;            /* Warm amber accent */
+    --accent-light: #FEF3C7;      /* Light amber */
+    --success: #10B981;           /* Emerald green */
+    --error: #EF4444;             /* Red */
+    --error-light: #FEE2E2;       /* Light red */
+    --gray-light: #F1F5F9;        /* Cool gray background */
+    --gray-border: #E2E8F0;       /* Border color */
+    --gray-text: #64748B;         /* Muted text */
+    --white: #FFFFFF;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -24,8 +29,8 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--gray-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--gray-light) 0%, #E2E8F0 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,17 +44,32 @@ body {
     width: 90%;
     margin: 2rem auto;
     background: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
+    border-radius: 28px;
+    box-shadow: var(--shadow-xl);
     padding: 2.2rem 2rem 2rem 2rem;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 .container h1 {
     font-size: 1.85rem;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    color: var(--secondary);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--primary-light);
@@ -58,7 +78,7 @@ body {
 
 /* Error message styling */
 .error-msg {
-    background-color: #fef2f0;
+    background: linear-gradient(135deg, var(--error-light) 0%, #FEE2E2 100%);
     color: var(--error);
     padding: 0.9rem 1rem;
     border-radius: 12px;
@@ -82,7 +102,7 @@ body {
     padding: 1rem 0.75rem 0.5rem 0.75rem;
     font-size: 1rem;
     border: 1.5px solid var(--gray-border);
-    border-radius: 14px;
+    border-radius: 16px;
     background-color: var(--white);
     transition: var(--transition);
     outline: none;
@@ -92,7 +112,7 @@ body {
 
 .input-group input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+    box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.1);
 }
 
 .input-group span {
@@ -114,7 +134,7 @@ body {
     top: 0px;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    color: var(--primary);
+    color: var(--accent);
     background: var(--white);
     font-weight: 500;
 }
@@ -135,22 +155,41 @@ body {
 .submit {
     width: 100%;
     padding: 0.9rem;
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     font-size: 1rem;
     font-weight: 600;
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 0.3px;
     margin-top: 0.25rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.submit:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .submit:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(12, 109, 158, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 79, 114, 0.3);
 }
 
 .submit:active {
@@ -171,12 +210,17 @@ body {
 }
 
 .container a span {
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-weight: 600;
 }
 
 .container a:hover span {
-    color: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #D97706 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     text-decoration: underline;
 }
 
@@ -197,23 +241,45 @@ body {
     }
 }
 
-/* Additional electrical billing touch - subtle voltage icon via pseudo? keeping clean */
+/* Additional electrical billing touch - subtle voltage icon */
 .container h1::before {
     content: "⚡";
     font-size: 1.6rem;
     display: inline-block;
     margin-right: 8px;
-    opacity: 0.85;
+    opacity: 0.9;
     vertical-align: middle;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--accent);
 }
 
 /* Focus visible for accessibility */
 .input-group input:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 1px;
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 8px;
 }
 
 .submit:focus-visible {
-    outline: 2px solid var(--primary-dark);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Animation for form */
+.container {
+    animation: slideUpFade 0.4s ease-out;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
