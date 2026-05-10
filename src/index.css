@@ -1,22 +1,28 @@
 /* index.css */
-/* Electrical Billing System Theme - Homepage/Dashboard - Clean, Professional, Minimalist */
+/* Electrical Billing System Theme - Homepage/Dashboard - Fresh & Modern */
 
 :root {
-    --primary: #0C6D9E;
-    --primary-dark: #084d6f;
-    --primary-light: #eef5f9;
-    --secondary: #2c3e50;
-    --success: #27ae60;
-    --success-light: #e8f5e9;
-    --warning: #f39c12;
-    --warning-light: #fff3e0;
-    --gray-light: #f5f6f8;
-    --gray-border: #e0e4e8;
-    --gray-text: #5a6c7e;
-    --white: #ffffff;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --transition: all 0.2s ease;
+    --primary: #1B4F72;           /* Deep navy blue */
+    --primary-dark: #0D3B5E;      /* Darker navy */
+    --primary-light: #E8F0F8;     /* Soft blue tint */
+    --secondary: #1E293B;         /* Slate gray */
+    --accent: #F59E0B;            /* Warm amber accent */
+    --accent-light: #FEF3C7;      /* Light amber */
+    --success: #10B981;           /* Emerald green */
+    --success-light: #D1FAE5;     /* Light emerald */
+    --warning: #F59E0B;           /* Amber for warnings */
+    --warning-light: #FEF3C7;     /* Light amber */
+    --error: #EF4444;             /* Red */
+    --error-light: #FEE2E2;       /* Light red */
+    --gray-light: #F1F5F9;        /* Cool gray background */
+    --gray-border: #E2E8F0;       /* Border color */
+    --gray-text: #64748B;         /* Muted text */
+    --white: #FFFFFF;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -26,8 +32,8 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--gray-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--gray-light) 0%, #E2E8F0 100%);
     min-height: 100vh;
     color: var(--secondary);
     line-height: 1.5;
@@ -43,20 +49,36 @@ body {
 /* Card / Container Styling */
 .container {
     background: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow-md);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
     padding: 2rem;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 /* Headings */
 .container h1 {
     font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--secondary);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--primary-light);
+    letter-spacing: -0.02em;
 }
 
 .container h2 {
@@ -64,6 +86,18 @@ body {
     font-weight: 600;
     color: var(--secondary);
     margin: 1.5rem 0 1rem 0;
+    position: relative;
+    display: inline-block;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
 }
 
 .container h3 {
@@ -76,7 +110,7 @@ body {
 
 /* Success Message */
 .error.success {
-    background-color: var(--success-light);
+    background: linear-gradient(135deg, var(--success-light) 0%, #D1FAE5 100%);
     color: var(--success);
     padding: 1rem 1.25rem;
     border-radius: 12px;
@@ -88,6 +122,15 @@ body {
     margin: 0;
     font-size: 0.9rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error.success h3::before {
+    content: "✓";
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* Search Form */
@@ -101,7 +144,7 @@ body {
     padding: 1rem 0.75rem 0.5rem 0.75rem;
     font-size: 1rem;
     border: 1.5px solid var(--gray-border);
-    border-radius: 14px;
+    border-radius: 16px;
     background-color: var(--white);
     transition: var(--transition);
     outline: none;
@@ -110,7 +153,7 @@ body {
 
 .box input:not([type="submit"]):focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+    box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.1);
 }
 
 .box span {
@@ -132,7 +175,7 @@ body {
     top: 0px;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    color: var(--primary);
+    color: var(--accent);
     background: var(--white);
     font-weight: 500;
 }
@@ -145,21 +188,40 @@ body {
 .submit {
     width: 100%;
     padding: 0.9rem;
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     font-size: 1rem;
     font-weight: 600;
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.submit:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .submit:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 14px rgba(12, 109, 158, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 79, 114, 0.3);
 }
 
 .submit:active {
@@ -179,7 +241,7 @@ hr {
     border-collapse: collapse;
     margin: 1rem 0 1.5rem 0;
     background: var(--gray-light);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -197,7 +259,7 @@ hr {
 .container table:first-of-type td:first-child {
     font-weight: 600;
     width: 35%;
-    background-color: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-light) 0%, #E8F0F8 100%);
     color: var(--primary-dark);
 }
 
@@ -212,13 +274,13 @@ table.center {
     border-collapse: collapse;
     margin: 1rem 0 1.5rem 0;
     font-size: 0.85rem;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
 }
 
 table.center th {
-    background-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
     padding: 0.9rem 0.75rem;
     font-weight: 600;
@@ -250,19 +312,19 @@ table.center a {
 }
 
 table.center a[href*="view.php"] {
-    background-color: var(--success-light);
+    background: linear-gradient(135deg, var(--success-light) 0%, #D1FAE5 100%);
     color: var(--success);
     cursor: default;
     pointer-events: none;
 }
 
 table.center a[href*="payment.php"] {
-    background-color: var(--warning-light);
+    background: linear-gradient(135deg, var(--warning-light) 0%, #FEF3C7 100%);
     color: var(--warning);
 }
 
 table.center a[href*="payment.php"]:hover {
-    background-color: var(--warning);
+    background: linear-gradient(135deg, var(--warning) 0%, #D97706 100%);
     color: white;
     transform: translateY(-1px);
 }
@@ -323,6 +385,24 @@ table.center a[href*="payment.php"]:hover {
 /* Focus states */
 .box input:focus-visible,
 .submit:focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Animation for results */
+.container table,
+.container .error.success {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
