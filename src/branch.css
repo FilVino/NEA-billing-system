@@ -1,0 +1,423 @@
+/* branch.css */
+/* Electrical Billing System Theme - Add Branch Page - Professional & Minimalist */
+
+:root {
+    --primary: #0C6D9E;
+    --primary-dark: #084d6f;
+    --primary-light: #eef5f9;
+    --secondary: #1a2a3a;
+    --success: #27ae60;
+    --success-light: #e8f5e9;
+    --warning: #f39c12;
+    --error: #e74c3c;
+    --error-light: #fef2f0;
+    --gray-bg: #f8f9fc;
+    --gray-border: #e2e8f0;
+    --gray-text: #64748b;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--gray-bg) 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    color: var(--secondary);
+    line-height: 1.5;
+}
+
+/* Main Content */
+.main-content {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+}
+
+/* Page Container */
+.page-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Back Navigation */
+.back-nav {
+    margin-bottom: 1.25rem;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--gray-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 40px;
+    transition: var(--transition);
+}
+
+.back-button:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+    transform: translateX(-4px);
+}
+
+.back-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Form Card */
+.form-card {
+    background: var(--white);
+    border-radius: 32px;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* Form Header */
+.form-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--white);
+}
+
+.form-icon-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.form-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+.form-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+/* Branch Form */
+.branch-form {
+    padding: 2rem;
+}
+
+/* Input Group */
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 16px;
+    background-color: var(--white);
+    transition: var(--transition);
+    outline: none;
+    color: var(--secondary);
+    font-family: inherit;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+}
+
+/* Floating Label */
+.input-group label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    transition: var(--transition);
+    pointer-events: none;
+    background: transparent;
+    padding: 0 0.25rem;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: var(--primary);
+    background: var(--white);
+    font-weight: 500;
+}
+
+.input-group input::placeholder {
+    opacity: 0;
+}
+
+/* Toggle Switch Group */
+.toggle-group {
+    margin-bottom: 2rem;
+}
+
+.toggle-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-text);
+    margin-bottom: 0.75rem;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-slider {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    background-color: var(--gray-border);
+    border-radius: 34px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--white);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background-color: var(--success);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+.toggle-text-active,
+.toggle-text-inactive {
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.toggle-text-active {
+    color: var(--success);
+}
+
+.toggle-text-inactive {
+    color: var(--gray-text);
+}
+
+.toggle-switch input:not(:checked) ~ .toggle-text-active {
+    color: var(--gray-text);
+}
+
+.toggle-switch input:not(:checked) ~ .toggle-text-inactive {
+    color: var(--error);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-submit,
+.btn-reset {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(12, 109, 158, 0.3);
+}
+
+.btn-reset {
+    background: var(--gray-bg);
+    color: var(--gray-text);
+    border: 1.5px solid var(--gray-border);
+}
+
+.btn-reset:hover {
+    background: var(--gray-border);
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn-submit:active,
+.btn-reset:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--gray-text);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--gray-border);
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .page-container {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    .form-header {
+        padding: 1.75rem 1.5rem;
+    }
+
+    .form-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+    }
+
+    .form-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .branch-form {
+        padding: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-reset {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .back-button {
+        padding: 0.4rem 0.875rem;
+        font-size: 0.8rem;
+    }
+
+    .toggle-switch {
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+/* Focus States */
+.input-group input:focus-visible,
+.btn-submit:focus-visible,
+.btn-reset:focus-visible,
+.back-button:focus-visible,
+.toggle-switch input:focus-visible + .toggle-slider {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Animations */
+.form-card {
+    animation: slideUpFade 0.4s ease-out;
+}
+
+.back-button {
+    animation: slideRightFade 0.3s ease-out;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRightFade {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

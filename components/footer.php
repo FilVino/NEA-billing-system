@@ -1,6 +1,6 @@
 <footer>
     <p>
-        Copyright © <span id="year-change"></span> Nepal Electricity Authority ❘
+        Copyright © <span id="year-change"></span>
         All Rights Reserved.
     </p>
 </footer>

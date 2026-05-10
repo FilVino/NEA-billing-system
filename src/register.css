@@ -1,0 +1,219 @@
+/* register.css */
+/* Electrical Billing System Theme - Clean, Professional, Minimalist */
+
+:root {
+    --primary: #0C6D9E;      /* Trustworthy blue, electrical theme */
+    --primary-dark: #084d6f;
+    --primary-light: #eef5f9;
+    --secondary: #2c3e50;
+    --success: #27ae60;
+    --error: #e74c3c;
+    --gray-light: #f5f6f8;
+    --gray-border: #e0e4e8;
+    --gray-text: #5a6c7e;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--gray-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary);
+    line-height: 1.5;
+}
+
+/* Container Form */
+.container {
+    max-width: 460px;
+    width: 90%;
+    margin: 2rem auto;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    padding: 2.2rem 2rem 2rem 2rem;
+    transition: var(--transition);
+}
+
+.container h1 {
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--primary-light);
+    display: inline-block;
+}
+
+/* Error message styling */
+.error-msg {
+    background-color: #fef2f0;
+    color: var(--error);
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--error);
+}
+
+/* Input Group with floating label effect */
+.input-group {
+    position: relative;
+    margin-bottom: 1.75rem;
+}
+
+.input-group.box {
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 0.75rem 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1.5px solid var(--gray-border);
+    border-radius: 14px;
+    background-color: var(--white);
+    transition: var(--transition);
+    outline: none;
+    font-weight: 450;
+    color: var(--secondary);
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+}
+
+.input-group span {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    transition: var(--transition);
+    pointer-events: none;
+    background: transparent;
+    padding: 0 4px;
+}
+
+/* Floating label effect when input is focused or has value */
+.input-group input:focus ~ span,
+.input-group input:not(:placeholder-shown) ~ span {
+    top: 0px;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+    color: var(--primary);
+    background: var(--white);
+    font-weight: 500;
+}
+
+.input-group input::placeholder {
+    opacity: 0;
+}
+
+/* Remove default placeholder visibility shift */
+.input-group input:placeholder-shown ~ span {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.95rem;
+    color: var(--gray-text);
+}
+
+/* Button styling */
+.submit {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+    margin-top: 0.25rem;
+}
+
+.submit:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(12, 109, 158, 0.2);
+}
+
+.submit:active {
+    transform: translateY(0);
+}
+
+/* Link styling */
+.container p {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--gray-text);
+}
+
+.container a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.container a span {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.container a:hover span {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+    .container {
+        width: 92%;
+        padding: 1.8rem 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .container h1 {
+        font-size: 1.6rem;
+    }
+
+    .input-group input {
+        padding: 0.9rem 0.75rem 0.45rem 0.75rem;
+    }
+}
+
+/* Additional electrical billing touch - subtle voltage icon via pseudo? keeping clean */
+.container h1::before {
+    content: "⚡";
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-right: 8px;
+    opacity: 0.85;
+    vertical-align: middle;
+}
+
+/* Focus visible for accessibility */
+.input-group input:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+}
+
+.submit:focus-visible {
+    outline: 2px solid var(--primary-dark);
+    outline-offset: 2px;
+}

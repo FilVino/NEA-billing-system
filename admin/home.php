@@ -11,7 +11,7 @@ include '../php/sessionVerify.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Billing</title>
 
-    <link rel="stylesheet" href="../src/styles.css" />
+    <link rel="stylesheet" href="../src/home.css" />
 </head>
 
 
@@ -34,37 +34,77 @@ include '../php/sessionVerify.php';
     <?php endif ?>
 
 
-    <div class="container homepage-container">
-        <h1>Admin PANEL</h1>
-        <ul>
-            <li><a class="pages-redirect" href="./bill.php">Add Bill</a></li>
-            <li>
-                <a class="pages-redirect" href="branch.php">Add Branch</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="customer.php">Add Customer Details</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="demand.php">Add Demand type</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="demandRate.php">Add Demand Rate</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="payment.php">Add Payment</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="paymentOption.php">Add Payment Option</a>
-            </li>
-            <li>
-                <a class="pages-redirect" href="search.php">Search</a>
-            </li>
-        </ul>
+<div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Admin Panel</h1>
+            <p>Manage your electrical billing system from one central dashboard</p>
+        </div>
 
+        <div class="dashboard-grid">
+            <!-- Add Bill -->
+            <div class="dashboard-card">
+                <div class="card-icon">📄</div>
+                <h3>Add Bill</h3>
+                <p>Create and manage customer electricity bills</p>
+                <a href="./bill.php" class="card-link">Access →</a>
+            </div>
 
+            <!-- Add Branch -->
+            <div class="dashboard-card">
+                <div class="card-icon">🏢</div>
+                <h3>Add Branch</h3>
+                <p>Register new branch locations and offices</p>
+                <a href="branch.php" class="card-link">Access →</a>
+            </div>
 
-        <!-- search -->
+            <!-- Add Customer Details -->
+            <div class="dashboard-card">
+                <div class="card-icon">👤</div>
+                <h3>Add Customer</h3>
+                <p>Register new customer information</p>
+                <a href="customer.php" class="card-link">Access →</a>
+            </div>
 
+            <!-- Add Demand Type -->
+            <div class="dashboard-card">
+                <div class="card-icon">⚡</div>
+                <h3>Demand Type</h3>
+                <p>Configure electricity demand categories</p>
+                <a href="demand.php" class="card-link">Access →</a>
+            </div>
+
+            <!-- Add Demand Rate -->
+            <div class="dashboard-card">
+                <div class="card-icon">💰</div>
+                <h3>Demand Rate</h3>
+                <p>Set pricing rates per demand type</p>
+                <a href="demandRate.php" class="card-link">Access →</a>
+            </div>
+
+            <!-- Add Payment -->
+            <div class="dashboard-card">
+                <div class="card-icon">💳</div>
+                <h3>Add Payment</h3>
+                <p>Record customer payment transactions</p>
+                <a href="payment.php" class="card-link">Access →</a>
+            </div>
+
+            <!-- Add Payment Option -->
+            <div class="dashboard-card">
+                <div class="card-icon">🏦</div>
+                <h3>Payment Option</h3>
+                <p>Manage available payment methods</p>
+                <a href="paymentOption.php" class="card-link">Access →</a>
+            </div>
+
+            <!-- Search -->
+            <div class="dashboard-card">
+                <div class="card-icon">🔍</div>
+                <h3>Search</h3>
+                <p>Find customers, bills, and transactions</p>
+                <a href="search.php" class="card-link">Access →</a>
+            </div>
+        </div>
     </div>
 
     <?php include '../components/footer.php'; ?>
