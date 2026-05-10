@@ -1,21 +1,23 @@
 /* search.css */
-/* Electrical Billing System Theme - Search Customer Page - Professional & Minimalist */
+/* Electrical Billing System Theme - Search Customer Page - Fresh & Modern */
 
 :root {
-    --primary: #0C6D9E;
-    --primary-dark: #084d6f;
-    --primary-light: #eef5f9;
-    --secondary: #1a2a3a;
-    --success: #27ae60;
-    --success-light: #e8f5e9;
-    --warning: #f39c12;
-    --warning-light: #fff3e0;
-    --error: #e74c3c;
-    --error-light: #fef2f0;
-    --gray-bg: #f8f9fc;
-    --gray-border: #e2e8f0;
-    --gray-text: #64748b;
-    --white: #ffffff;
+    --primary: #1B4F72;           /* Deep navy blue */
+    --primary-dark: #0D3B5E;      /* Darker navy */
+    --primary-light: #E8F0F8;     /* Soft blue tint */
+    --secondary: #1E293B;         /* Slate gray */
+    --accent: #F59E0B;            /* Warm amber accent */
+    --accent-light: #FEF3C7;      /* Light amber */
+    --success: #10B981;           /* Emerald green */
+    --success-light: #D1FAE5;     /* Light emerald */
+    --warning: #F59E0B;           /* Amber for warnings */
+    --warning-light: #FEF3C7;     /* Light amber */
+    --error: #EF4444;             /* Red */
+    --error-light: #FEE2E2;       /* Light red */
+    --gray-bg: #F1F5F9;           /* Cool gray background */
+    --gray-border: #E2E8F0;       /* Border color */
+    --gray-text: #64748B;         /* Muted text */
+    --white: #FFFFFF;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -31,7 +33,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, var(--gray-bg) 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, var(--gray-bg) 0%, #E2E8F0 100%);
     min-height: 100vh;
     color: var(--secondary);
     line-height: 1.5;
@@ -70,8 +72,8 @@ body {
 }
 
 .back-button:hover {
-    color: var(--primary);
-    background: var(--primary-light);
+    color: var(--accent);
+    background: var(--accent-light);
     transform: translateX(-4px);
 }
 
@@ -88,7 +90,7 @@ body {
 }
 
 .alert-success {
-    background-color: var(--success-light);
+    background: linear-gradient(135deg, var(--success-light) 0%, #D1FAE5 100%);
     color: var(--success);
     padding: 1rem 1.25rem;
     border-radius: 12px;
@@ -103,6 +105,17 @@ body {
     box-shadow: var(--shadow-xl);
     overflow: hidden;
     transition: var(--transition);
+    position: relative;
+}
+
+.search-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 /* Search Header */
@@ -128,6 +141,11 @@ body {
     justify-content: center;
     border-radius: 50%;
     font-size: 2rem;
+    transition: var(--transition);
+}
+
+.search-card:hover .search-icon {
+    transform: scale(1.05);
 }
 
 .search-header h1 {
@@ -168,7 +186,7 @@ body {
 
 .input-group input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+    box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.1);
 }
 
 .input-group label {
@@ -189,7 +207,7 @@ body {
     top: 0;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    color: var(--primary);
+    color: var(--accent);
     background: var(--white);
     font-weight: 500;
 }
@@ -227,11 +245,31 @@ body {
     font-family: inherit;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-search::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-search:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-search:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(12, 109, 158, 0.3);
+    box-shadow: 0 8px 20px rgba(27, 79, 114, 0.3);
 }
 
 .btn-search:active {
@@ -264,14 +302,27 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--secondary);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
 }
 
 /* Info Grid */
 .info-grid {
-    background: var(--gray-bg);
+    background: linear-gradient(135deg, var(--gray-bg) 0%, #F8FAFC 100%);
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 0.5rem;
+    border: 1px solid var(--gray-border);
 }
 
 .info-row {
@@ -287,7 +338,10 @@ body {
 .info-label {
     width: 35%;
     font-weight: 600;
-    color: var(--primary-dark);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .info-value {
@@ -309,7 +363,7 @@ body {
 }
 
 .data-table thead {
-    background: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-light) 0%, #E8F0F8 100%);
 }
 
 .data-table th {
@@ -331,20 +385,25 @@ body {
 }
 
 .data-table tr:hover td {
-    background-color: var(--primary-light);
+    background: linear-gradient(135deg, var(--primary-light) 0%, #F1F5F9 100%);
 }
 
 .data-table .amount {
     font-weight: 600;
-    color: var(--primary);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .data-table .rebate {
     color: var(--success);
+    font-weight: 500;
 }
 
 .data-table .fine {
     color: var(--warning);
+    font-weight: 500;
 }
 
 /* Status Badges */
@@ -357,12 +416,12 @@ body {
 }
 
 .badge.paid {
-    background: var(--success-light);
+    background: linear-gradient(135deg, var(--success-light) 0%, #D1FAE5 100%);
     color: var(--success);
 }
 
 .badge.unpaid {
-    background: var(--warning-light);
+    background: linear-gradient(135deg, var(--warning-light) 0%, #FEF3C7 100%);
     color: var(--warning);
 }
 
@@ -478,7 +537,7 @@ footer {
 .input-group input:focus-visible,
 .btn-search:focus-visible,
 .back-button:focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 8px;
 }
