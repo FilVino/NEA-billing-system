@@ -1,20 +1,22 @@
 /* branch.css */
-/* Electrical Billing System Theme - Add Branch Page - Professional & Minimalist */
+/* Electrical Billing System Theme - Add Branch Page - Fresh & Modern */
 
 :root {
-    --primary: #0C6D9E;
-    --primary-dark: #084d6f;
-    --primary-light: #eef5f9;
-    --secondary: #1a2a3a;
-    --success: #27ae60;
-    --success-light: #e8f5e9;
-    --warning: #f39c12;
-    --error: #e74c3c;
-    --error-light: #fef2f0;
-    --gray-bg: #f8f9fc;
-    --gray-border: #e2e8f0;
-    --gray-text: #64748b;
-    --white: #ffffff;
+    --primary: #1B4F72;           /* Deep navy blue */
+    --primary-dark: #0D3B5E;      /* Darker navy */
+    --primary-light: #E8F0F8;     /* Soft blue tint */
+    --secondary: #1E293B;         /* Slate gray */
+    --accent: #F59E0B;            /* Warm amber accent */
+    --accent-light: #FEF3C7;      /* Light amber */
+    --success: #10B981;           /* Emerald green */
+    --success-light: #D1FAE5;     /* Light emerald */
+    --warning: #F59E0B;           /* Amber for warnings */
+    --error: #EF4444;             /* Red */
+    --error-light: #FEE2E2;       /* Light red */
+    --gray-bg: #F1F5F9;           /* Cool gray background */
+    --gray-border: #E2E8F0;       /* Border color */
+    --gray-text: #64748B;         /* Muted text */
+    --white: #FFFFFF;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -30,7 +32,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, var(--gray-bg) 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, var(--gray-bg) 0%, #E2E8F0 100%);
     min-height: 100vh;
     color: var(--secondary);
     line-height: 1.5;
@@ -71,8 +73,8 @@ body {
 }
 
 .back-button:hover {
-    color: var(--primary);
-    background: var(--primary-light);
+    color: var(--accent);
+    background: var(--accent-light);
     transform: translateX(-4px);
 }
 
@@ -88,6 +90,17 @@ body {
     box-shadow: var(--shadow-xl);
     overflow: hidden;
     transition: var(--transition);
+    position: relative;
+}
+
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
 }
 
 /* Form Header */
@@ -96,6 +109,7 @@ body {
     padding: 2.5rem 2rem;
     text-align: center;
     color: var(--white);
+    position: relative;
 }
 
 .form-icon-wrapper {
@@ -113,6 +127,11 @@ body {
     justify-content: center;
     border-radius: 50%;
     font-size: 2rem;
+    transition: var(--transition);
+}
+
+.form-card:hover .form-icon {
+    transform: scale(1.05);
 }
 
 .form-header h1 {
@@ -153,7 +172,7 @@ body {
 
 .input-group input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(12, 109, 158, 0.1);
+    box-shadow: 0 0 0 3px rgba(27, 79, 114, 0.1);
 }
 
 /* Floating Label */
@@ -175,7 +194,7 @@ body {
     top: 0;
     transform: translateY(-50%);
     font-size: 0.7rem;
-    color: var(--primary);
+    color: var(--accent);
     background: var(--white);
     font-weight: 500;
 }
@@ -287,6 +306,8 @@ body {
     cursor: pointer;
     transition: var(--transition);
     font-family: inherit;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-submit {
@@ -294,9 +315,27 @@ body {
     color: var(--white);
 }
 
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-submit:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
 .btn-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(12, 109, 158, 0.3);
+    box-shadow: 0 8px 20px rgba(27, 79, 114, 0.3);
 }
 
 .btn-reset {
@@ -386,7 +425,7 @@ footer {
 .btn-reset:focus-visible,
 .back-button:focus-visible,
 .toggle-switch input:focus-visible + .toggle-slider {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 8px;
 }
