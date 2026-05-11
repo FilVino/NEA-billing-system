@@ -1,4 +1,9 @@
-<?php include('functions.php') ?>
+<?php
+include('functions.php');
+if (!apiIsOnline()) {
+    renderApiOfflinePage('System Offline', 'The API server is not running. Registration is disabled until the API is available.');
+}
+?>
 <!DOCTYPE html>
 <html>
 

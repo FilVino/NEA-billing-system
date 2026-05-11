@@ -15,6 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // =========================
+// HEALTH CHECK
+// =========================
+app.get('/health', (req, res) => {
+    res.json({ success: true, message: 'API server is running' });
+});
+
+// =========================
 // DATABASE
 // =========================
 const db = mysql.createConnection({

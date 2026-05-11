@@ -1,6 +1,46 @@
 <?php
 session_start();
 
+// API health-check configuration
+const API_HEALTH_URL = 'http://localhost:3000/health';
+
+function apiIsOnline()
+{
+    $ch = curl_init(API_HEALTH_URL);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 3);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    if ($response === false) {
+        return false;
+    }
+
+    $result = json_decode($response, true);
+    return is_array($result) && !empty($result['success']);
+}
+
+function renderApiOfflinePage($title = 'System Offline', $message = 'The API server is not running.')
+{
+    http_response_code(503);
+    echo '<!DOCTYPE html>';
+    echo '<html lang="en">';
+    echo '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>' . htmlspecialchars($title) . '</title>';
+    echo '<style>body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#333;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center} .box{max-width:460px;padding:2rem;background:#fff;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.08)}h1{margin:0 0 1rem;font-size:2rem}p{margin:.5rem 0;color:#555}.retry{display:inline-block;margin-top:1rem;padding:.75rem 1.25rem;border:none;border-radius:8px;background:#0C6D9E;color:#fff;font-weight:600;text-decoration:none;}</style></head>';
+    echo '<body><div class="box"><h1>' . htmlspecialchars($title) . '</h1><p>' . htmlspecialchars($message) . '</p><p>The login and registration system depends on the API server at <strong>http://localhost:3000</strong>.</p><a class="retry" href="' . htmlspecialchars($_SERVER['PHP_SELF']) . '">Retry</a></div></body></html>';
+    exit();
+}
+
+function requireApiOnline()
+{
+    if (!apiIsOnline()) {
+        renderApiOfflinePage();
+    }
+}
+
 // connect to database
 $db = mysqli_connect('localhost', 'root', '', 'billing_system');
 
