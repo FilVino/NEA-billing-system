@@ -190,9 +190,11 @@
     </div>
 
     <?php if ($currentPage === 'home.php') { ?>
-        <div class="nav-buttons">
-            <button class="btn-primary logout-btn" onclick="submit">Logout</button>
-        </div>
+    <div class="nav-buttons">
+        <a href="../login.php" class="nav-link">
+            <button class="btn-primary logout-btn">Logout</button>
+        </a>
+    </div>
     <?php } elseif ($currentPage === 'login.php' || $currentPage === 'register.php') { ?>
         <!-- No buttons shown on login/register pages -->
     <?php } elseif ($currentPage === 'index.php') { ?>
